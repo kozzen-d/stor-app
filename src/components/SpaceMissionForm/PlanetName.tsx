@@ -1,5 +1,3 @@
-import React from "react";
-
 type PlanetSelectProps = {
   planet: string;
   setPlanet: (planet: string) => void;

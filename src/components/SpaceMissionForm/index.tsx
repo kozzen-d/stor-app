@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import PlanetSelect from "./PlanetName";
 import AstronautInput from "./AstronautName";
 import MissionMessage from "./MissionMessage";
 import styles from "./SpaceMissionForm.module.css";
+import { useState } from "react";
 
 export default function SpaceMissionForm() {
   const [name, setName] = useState<string>(""); // имя астронавта

@@ -1,5 +1,3 @@
-import React from "react";
-
 type MissionMessageProps = {
   name: string;
   planet: string;

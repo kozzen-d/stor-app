@@ -1,5 +1,3 @@
-import React from "react";
-
 type AstronautInputProps = {
   name: string;
   setName: (name: string) => void;
