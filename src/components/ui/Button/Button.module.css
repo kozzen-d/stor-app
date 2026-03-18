@@ -1,18 +1,63 @@
 .button {
+  padding: 0.8rem 2rem;
+  margin: 0.4rem; 
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(45deg, #00f0ff, #ff00ff);
   border: none;
-  border-radius: 0.4rem;
-  padding: 0.6rem 1rem;
-  margin: 0.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow:
+    0 0 10px #00f0ff,
+    0 0 20px #ff00ff;
+  background-size: 200% 200%; /* для анимации градиента */
+  transition: all 0.3s ease-in-out;
+  animation: gradientShift 5s ease infinite;
 }
 
-.primary {
-  background-color: rgb(115, 220, 177);
+.button:hover {
+  box-shadow:
+    0 0 20px #00f0ff,
+    0 0 40px #ff00ff,
+    0 0 60px #00f0ff;
+  transform: scale(1.05);
 }
 
-.secondary {
-  border: rgb(134, 170, 206) solid 1px;
+/* Анимация градиента */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.danger {
-  background-color: rgb(202, 54, 54);
+/* Варианты кнопок */
+.button.primary {
+  background: linear-gradient(45deg, #73dcb1, #1ce6b9);
+  box-shadow:
+    0 0 10px #73dcb1,
+    0 0 20px #1ce6b9;
+  color: #000;
+}
+
+.button.secondary {
+  background: linear-gradient(45deg, transparent, transparent);
+  border: 1px solid #86aace;
+  color: #86aace;
+  box-shadow: 0 0 5px #86aace;
+}
+
+.button.danger {
+  background: linear-gradient(45deg, #ca3636, #ff5e5e);
+  box-shadow:
+    0 0 10px #ca3636,
+    0 0 20px #ff5e5e;
+  color: #fff;
 }

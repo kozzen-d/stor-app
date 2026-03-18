@@ -1,27 +1,41 @@
-import { useState } from "react";
-import { Button } from "../ui/Button/Button";
+import { useEffect, useState } from "react";
+import styles from "./Calculator.module.css";
 
 export default function GoldPriceCalculator() {
   const [weight, setWeight] = useState<number>(0);
   const [goldPriceGram, setGoldPriceGram] = useState(0);
   const [dateTime, setDateTime] = useState<string>("");
-  const [currencyCode, setCurrencyCode] = useState("USD");
+  const [currencyCode, setCurrencyCode] = useState("EUR");
 
-  async function fetchGoldPrice(code: string) {
-    const BASE_URL = import.meta.env.VITE_GOLD_API_URL;
-    const PATH = `/XAU/${code}`;
-    const res = await fetch(BASE_URL + PATH, {
-      headers: {
-        "x-access-token": import.meta.env.VITE_GOLD_API_KEY,
-      },
-    });
-    const data = await res.json();
+  useEffect(() => {
+    async function fetchGoldPrice(code: string) {
+      const BASE_URL = import.meta.env.VITE_GOLD_API_URL;
+      const PATH = `/XAU/${code}`;
+      try {
+        const res = await fetch(BASE_URL + PATH, {
+          headers: {
+            "x-access-token": import.meta.env.VITE_GOLD_API_KEY,
+          },
+        });
 
-    setDateTime(new Date(data.timestamp * 1000).toLocaleString());
-    setGoldPriceGram(data.price_gram_24k);
-  }
+        if (!res.ok) {
+          throw new Error("Failed to fetch gold price");
+        }
+
+        const data = await res.json();
+        setDateTime(new Date(data.timestamp * 1000).toLocaleString());
+        setGoldPriceGram(data.price_gram_24k);
+      } catch (error) {
+        console.error(error);
+        setGoldPriceGram(0);
+      }
+    }
+
+    fetchGoldPrice(currencyCode);
+  }, [currencyCode]); // weight здесь не нужен
+
   return (
-    <div>
+    <div className={styles.calculator}>
       <h2>GOLD PRICE CALCULATOR</h2>
 
       <select
@@ -33,30 +47,26 @@ export default function GoldPriceCalculator() {
         <option value="CHF">CHF - Swiss Franc</option>
       </select>
 
-      <Button
-        onClick={() => {
-          fetchGoldPrice(currencyCode);
-        }}
-      >
-        Update gold price
-      </Button>
-
       {goldPriceGram ? (
         <div>
           <p>
-            Price per gram: {goldPriceGram} {currencyCode} Time: {dateTime}
+            Price per gram: {goldPriceGram.toFixed(2)} {currencyCode}
           </p>
-          <label htmlFor="">Weght, gr: </label>
+          <p>Updated: {dateTime}</p>
+
+          <label>Weight (grams)</label>
           <input
             type="number"
             value={weight}
             onChange={(e) => setWeight(Number(e.target.value))}
           />
 
-          <p>Total price: {weight * goldPriceGram}</p>
+          <p>
+            Total price: {(weight * goldPriceGram).toFixed(2)} {currencyCode}
+          </p>
         </div>
       ) : (
-        <p>First pick a currency and update price</p>
+        <p>First pick currency and update the price ...</p>
       )}
     </div>
   );

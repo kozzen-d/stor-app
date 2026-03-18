@@ -1,17 +1,19 @@
-.container {
-  background: linear-gradient(135deg, #ff7e5f, #f5ccad);
+.book {
+ background: linear-gradient(135deg, #00f260, #0575e6);
   border-radius: 1rem;
   padding: 2rem;
   margin: 2rem auto;
   max-width: 500px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  text-align: center;
+  text-align: left;
   color: #3b2e5a;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: all 0.3s ease;
 }
 
-.profileName {
-  color: rgb(90, 39, 138);
-  font-size: 16px;
+.book img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

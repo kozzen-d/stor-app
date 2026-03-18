@@ -17,8 +17,6 @@ export const ProfileCard: FC<Props> = ({ name, description, avatar }) => {
   );
 };
 
-
-
 // export const ProfileCard: FC<Props> = ({ name, description, avatar }) => {
 //   return <div>ProfileCard</div>;
 // };

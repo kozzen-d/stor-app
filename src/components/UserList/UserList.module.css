@@ -1,0 +1,11 @@
+.userList {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+h1 {
+  text-align: center;
+}

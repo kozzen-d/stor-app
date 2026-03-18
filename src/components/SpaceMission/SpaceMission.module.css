@@ -1,0 +1,53 @@
+.spaceMission {
+  background: linear-gradient(135deg, #1e1e3f, #3a2f6b);
+  color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 420px;
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Заголовок */
+.spaceMission h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Label */
+.spaceMission label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* Input */
+.spaceMission input {
+  width: 80%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Select */
+.spaceMission select {
+  width: 80%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Текст результата */
+.spaceMission p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+}

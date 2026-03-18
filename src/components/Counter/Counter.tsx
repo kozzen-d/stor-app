@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "../ui/Button/Button";
-
+import styles from "./Counter.module.css";
+import { Link } from "react-router-dom";
 
 export const Counter = () => {
   const headingText = "Counter";
@@ -23,15 +24,18 @@ export const Counter = () => {
   }
 
   return (
-    <div>
+    <div className={styles.counter}>
       <h2>{headingText}</h2>
       <button type="button" onClick={handleMinus}>
         -
       </button>
       <div>Count: {count}</div>
       <Button onClick={handlePlus}>+</Button>
-      <Button onClick={handleClear} variant="danger">Clear</Button>
-
+      <Button onClick={handleClear} variant="danger">
+        Clear
+      </Button>
+      <br />
+      <Link to="/">Go to homepage</Link>
     </div>
   );
 };
@@ -42,5 +46,3 @@ export const Counter = () => {
 // на второй позиции - сеттер для этого стейта
 // для создания состояния внутри компонента - при изменении которого -
 // происходит rerender компонента
-
-

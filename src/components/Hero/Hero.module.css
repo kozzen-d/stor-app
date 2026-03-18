@@ -1,5 +1,5 @@
-.container {
-  background: linear-gradient(135deg, #ff7e5f, #f5ccad);
+.hero {
+  background: radial-gradient(circle, #d3a2cf, #b7439a);
   border-radius: 1rem;
   padding: 2rem;
   margin: 2rem auto;
@@ -11,7 +11,13 @@
   transition: all 0.3s ease;
 }
 
-.profileName {
-  color: rgb(90, 39, 138);
-  font-size: 16px;
+.hero select,
+.hero input {
+  margin: 1rem 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid #999;
+  width: 70%;
+  max-width: 300px;
 }
